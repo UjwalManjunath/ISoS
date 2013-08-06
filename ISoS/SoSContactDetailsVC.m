@@ -7,6 +7,8 @@
 //
 
 #import "SoSContactDetailsVC.h"
+#import "SoSCustomContactDetailCell.h"
+
 
 
 #define  NO_OF_CUSTOM_CELLS 1
@@ -31,8 +33,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property IBOutlet UITextField *customTextField;
-
 @property (nonatomic,strong) NSArray *titleForHeaders;  //stores header text for each section
 
 @property(nonatomic, getter = isPhonenumberSelected) BOOL phonenumberSelected;
@@ -44,7 +44,8 @@
 @end
 
 @implementation SoSContactDetailsVC{
-    
+    UITextField *customtextfield;
+    int counter[2];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -63,6 +64,8 @@
     self.phonenumberSelected = NO;
     self.EmailAddressSelected = NO;
     self.keyboardShown = NO;
+    counter[0] = 1;
+    counter[1] = 1;
     
     [self UpdateUI];
     
@@ -154,48 +157,43 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    if(cell == nil)
-    {
-        NSLog(@"cell is nill");
-    }
-    NSLog(@"Row %d",indexPath.row);
-    NSLog(@"Section %d",indexPath.section);
     
-    NSArray *dictionaries = @[self.phoneNumbers,self.emailAddresses];
+    
+      NSArray *dictionaries = @[self.phoneNumbers,self.emailAddresses];
     
     if(indexPath.row < [[dictionaries objectAtIndex:indexPath.section]count]  ) {
-        cell.textLabel.text = [[dictionaries[indexPath.section] allKeys]objectAtIndex:indexPath.row];
-        cell.detailTextLabel.text = [[dictionaries[indexPath.section] allValues]objectAtIndex:indexPath.row];
     
+    static NSString *cellIdentifier = @"Cell";
+     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        
+    cell.textLabel.text = [[dictionaries[indexPath.section] allKeys]objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text = [[dictionaries[indexPath.section] allValues]objectAtIndex:indexPath.row];
+        return  cell;
     }
     else{
-        self.customTextField = [[UITextField alloc]initWithFrame:CGRectMake(65,10,185,20)];
         
-        self.customTextField.adjustsFontSizeToFitWidth   = YES;
-        self.customTextField.textColor = [UIColor blackColor];
+       static NSString *CCDCellIdentifier = @"CCDCell";
+        SoSCustomContactDetailCell  *cell=  (SoSCustomContactDetailCell *)[tableView dequeueReusableCellWithIdentifier:CCDCellIdentifier ];
+
+        if(cell == nil){
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"customContactDetailCell" owner:self options:nil]objectAtIndex:0];
+        }
         
-        cell.textLabel.text = @"custom";
-        cell.detailTextLabel.text = @"";
+         
+        cell.titleLabelText = @"custom";
+        cell.detailText.text = @"";
+        cell.detailTextFieldPlaceHolder =   [@[@"(123) 456-7890",@"user@example.com"]objectAtIndex:indexPath.section];
+        cell.detailText.keyboardType = (indexPath.section) ?  UIKeyboardTypeEmailAddress: UIKeyboardTypePhonePad;
+        cell.detailText.returnKeyType = UIReturnKeyDone;
+        cell.detailText.delegate = self;
+        cell.detailText.tag = indexPath.section;
         
-        self.customTextField.placeholder = [@[@"(123) 456-7890",@"user@example.com"]objectAtIndex:indexPath.section];
-        
-        self.customTextField.keyboardType =  (indexPath.section) ?  UIKeyboardTypeEmailAddress: UIKeyboardTypePhonePad;
-        
-        self.customTextField.returnKeyType = UIReturnKeyDone;
-        
-        self.customTextField.delegate = self;
-        self.customTextField.tag = indexPath.section;
-        
-        [self.customTextField addTarget:self action:@selector(phoneNumberFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-        [self.customTextField addTarget:self action:@selector(textFieldDidEndEditing:) forControlEvents:UIControlEventEditingDidEndOnExit];
-        
-        [cell.contentView addSubview:self.customTextField];
-   
+        [cell.detailText addTarget:self action:@selector(returnKeyPressed:) forControlEvents:UIControlEventEditingDidEndOnExit];
+        [cell.detailText addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
+
+        return cell;
     }
-    //customize cell here
-    return  cell;
+
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section    // fixed font style. use custom view (UILabel) if you want something different
@@ -277,43 +275,38 @@
     
 }
 
-
-
-
-#pragma  Segue Methods
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
-    if(!self.isPhonenumberSelected || !self.isEmailAddressSelected)
-        return NO;
-    else
-        return YES;
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"saveContact"])
-    {
-        NSLog(@"prepare for segue called");
-    }
-}
-
 #pragma uitextfield delegate methods
 
-
-- (void)textFieldDidEndEditing:(UITextField *)textField{
-    NSLog(@"DID END EDITING");
+-(void)textFieldDidBeginEditing:(UITextField *)textField   {
+    customtextfield = textField;
 }
 
-- (void)phoneNumberFieldDidChange:(UITextField *)textField{
+-(void)textFieldChanged:(UITextField *)textField{
     if(textField.tag == 0){ // phonenumber field only
         if([[self formatNumber:textField.text] length] ==10){
+            [self returnKeyPressed:textField];
             [textField resignFirstResponder];
         }
     }
-    
-    [[@[self.phoneNumbers,self.emailAddresses]objectAtIndex:textField.tag] setValue:textField.text forKey:@"custom"];
-    UITableViewCell *cell = (UITableViewCell *)[[textField superview]superview ];
-    cell.accessoryType= UITableViewCellAccessoryCheckmark;
+}
+
+-(void)returnKeyPressed:(UITextField *)textField
+{
+    if(!(textField.text == nil)){
+        NSLog(@"%d",textField.tag);
+        [[ @[self.phoneNumbers,self.emailAddresses] objectAtIndex:textField.tag] setValue:textField.text forKey:[NSString stringWithFormat:@"custom %d",counter[textField.tag]]];
+        counter[textField.tag]++;
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:textField.tag] withRowAnimation:UITableViewRowAnimationBottom | UITableViewRowAnimationFade];
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    NSLog(@"DID END EDITING");
    
+    
+             // UITableViewCell *cell = (UITableViewCell *)[[textField superview]superview ];
+    //cell.accessoryType= UITableViewCellAccessoryCheckmark;
+
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
@@ -365,6 +358,7 @@
     return mobileNumber;
 }
 
+#define kKeyboardAnimationDuration 0.3
 
 #pragma NSNotification selector methods
 
@@ -379,15 +373,15 @@
     // get the size of the keyboard
     CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    // resize the noteView
+    // resize the tableview
     CGRect viewFrame = self.tableView.frame;
-    // I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
+  
     viewFrame.size.height -= (keyboardSize.height);
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    // The kKeyboardAnimationDuration I am using is 0.3
-    [UIView setAnimationDuration:0.3];
+   
+    [UIView setAnimationDuration:kKeyboardAnimationDuration];
     [self.tableView setFrame:viewFrame];
     [UIView commitAnimations];
     
@@ -404,33 +398,63 @@
     CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     
-    // resize the scrollview
+    // resize the tableview
     CGRect viewFrame = self.tableView.frame;
-    // I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
+    
     viewFrame.size.height += (keyboardSize.height);
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    // The kKeyboardAnimationDuration I am using is 0.3
-    [UIView setAnimationDuration:0.3];
+   
+    [UIView setAnimationDuration:kKeyboardAnimationDuration];
     [self.tableView setFrame:viewFrame];
     [UIView commitAnimations];
     
     self.keyboardShown= NO;
     
-    
-
 }
 
-
-
+///
+/// move the tableview scroll to the top
+///
 -(void)moveTextFieldUp
 {
-    UITableViewCell *cell = (UITableViewCell *)[[self.customTextField superview]superview];
+    UITableViewCell *cell = (UITableViewCell *)[[customtextfield superview]superview];
     [self.tableView scrollToRowAtIndexPath:[self.tableView indexPathForCell:cell] atScrollPosition:UITableViewScrollPositionBottom  animated:YES];
 }
 
 
+#pragma  Segue Methods
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if(!self.isPhonenumberSelected || !self.isEmailAddressSelected){
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Before You save" message:@"Please select an emailaddress and a phonenumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        return NO;
+    }
+    else
+        return YES;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"saveContact"])
+    {
+        NSLog(@"prepare for segue called");
+        
+  
+       for(id key in [self.phoneNumbers allKeys])
+       {
+           NSLog(@"Key: %@, value %@", key,self.phoneNumbers[key]);
+       }
+        
+        
+        for(id key in [self.emailAddresses allKeys])
+        {
+            NSLog(@"Key: %@, value %@", key,self.emailAddresses[key]);
+        }
+
+    }
+}
 
 
 

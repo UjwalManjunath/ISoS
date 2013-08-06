@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import <QuartzCore/QuartzCore.h>    
+#import "SoSCustomContactDetailCell.h"
 
 @interface SoSContactDetailsVC : UIViewController <UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 

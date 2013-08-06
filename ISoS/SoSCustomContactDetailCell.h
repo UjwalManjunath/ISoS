@@ -10,7 +10,11 @@
 
 @interface SoSCustomContactDetailCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
-@property (weak, nonatomic) IBOutlet UITextField *detailText;
+@property (nonatomic,strong) NSString *titleLabelText;
 
+@property (nonatomic,strong) NSString *detailTextFieldText;
+
+@property (nonatomic,strong) NSString *detailTextFieldPlaceHolder;
+
+@property (weak, nonatomic) IBOutlet UITextField *detailText;
 @end

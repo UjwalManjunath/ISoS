@@ -8,6 +8,7 @@
 
 #import "SoSContactsVC.h"
 #import "SoSaddContactCell.h"
+#import "SoSContactDetailsVC.h"
 
 #define NO_OF_STATIC_CELLS 1
 @interface SoSContactsVC ()
@@ -94,7 +95,13 @@
     
     NSString *cellIdentifier = @"addContact";
     SoSaddContactCell *cell= (SoSaddContactCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
-    cell = [[[NSBundle mainBundle]loadNibNamed:@"SoSaddContactCell" owner:self options:nil]objectAtIndex:0];
+   // if (cell == nil) {
+       // cell = [[SoSaddContactCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"SoSaddContactCell" owner:self options:nil]objectAtIndex:0];
+ //   }
+ 
+ 
+    
     return cell;
 }
 
@@ -166,6 +173,11 @@
 #pragma Unwind Segue Method
 
 -(IBAction)unwindingMehtod:(UIStoryboardSegue *)segue{
+    
+    SoSContactDetailsVC *contactDetials = [[SoSContactDetailsVC alloc ]init];
+    
+    
+    
     NSLog(@"back in parent view");
 }
 

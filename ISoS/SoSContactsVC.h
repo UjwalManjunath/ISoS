@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import "SoSaddContactCell.h"
 
 @interface SoSContactsVC : UIViewController <UITableViewDelegate,UITableViewDataSource,ABPeoplePickerNavigationControllerDelegate>
 
