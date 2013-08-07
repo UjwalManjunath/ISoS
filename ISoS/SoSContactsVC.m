@@ -175,9 +175,16 @@
 }
 
 -(void)showPicker:(NSUInteger)section{
+    if([self.tableView numberOfRowsInSection:section] >= 6)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Limit Reached" message:@"You can add only upto 5 members" delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
+        [alert show];
+        
+    }else{
     ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc]init];
     picker.peoplePickerDelegate= self;
     [self presentViewController:picker animated:YES completion:^{}];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
