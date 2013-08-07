@@ -203,6 +203,9 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0M-sc-T6t">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="219" id="arm-QM-8Wp"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -212,12 +215,11 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="utc-K1-37s" firstAttribute="centerY" secondItem="9Mh-fA-JMd" secondAttribute="centerY" type="default" id="7pr-J8-dgk"/>
+                                            <constraint firstItem="S0M-sc-T6t" firstAttribute="bottom" secondItem="utc-K1-37s" secondAttribute="bottom" type="default" id="Cqi-Xr-h6n"/>
                                             <constraint firstItem="utc-K1-37s" firstAttribute="leading" secondItem="9Mh-fA-JMd" secondAttribute="leading" constant="10" id="CrH-ed-kce"/>
-                                            <constraint firstItem="S0M-sc-T6t" firstAttribute="leading" secondItem="utc-K1-37s" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="SIr-MC-6sJ"/>
-                                            <constraint firstItem="ihL-EM-T7y" firstAttribute="trailing" secondItem="S0M-sc-T6t" secondAttribute="trailing" type="default" id="XdS-bg-5Wd"/>
                                             <constraint firstItem="utc-K1-37s" firstAttribute="top" secondItem="ihL-EM-T7y" secondAttribute="top" type="default" id="ggs-z0-a7x"/>
+                                            <constraint firstItem="S0M-sc-T6t" firstAttribute="leading" secondItem="9Mh-fA-JMd" secondAttribute="leading" constant="30" id="jp3-8f-T1e"/>
                                             <constraint firstItem="ihL-EM-T7y" firstAttribute="leading" secondItem="utc-K1-37s" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="nM6-xx-W1I"/>
-                                            <constraint firstItem="S0M-sc-T6t" firstAttribute="top" secondItem="9Mh-fA-JMd" secondAttribute="top" constant="20" type="default" id="ury-CA-roi"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="firstNameLabel" destination="ihL-EM-T7y" id="6c6-UG-bh0"/>
