@@ -151,7 +151,120 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTg-UY-cQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xyF-NZ-o8T" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="126"/>
+            <point key="canvasLocation" x="1334" y="523"/>
+        </scene>
+        <!--SoS EmergencyVC-->
+        <scene sceneID="6Z1-Rd-Sdb">
+            <objects>
+                <viewController id="gm9-IF-zJ9" customClass="SoSEmergencyVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lko-tZ-zT6">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background00.png" translatesAutoresizingMaskIntoConstraints="NO" id="cJs-Xd-WAs"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSC-oS-ffO">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="iSi-dP-JkA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="red-button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezQ-UJ-hFW">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="LSO-Nb-Xyc"/>
+                                    <constraint firstAttribute="height" constant="150" id="N7i-EJ-DbL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="red-button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSk-Dk-kMg">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="88e-8G-Zi6"/>
+                                    <constraint firstAttribute="width" constant="105" id="qdR-mS-yHT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="fireIcon.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qd-TD-Rqn">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="SFG-7I-6wJ"/>
+                                    <constraint firstAttribute="width" constant="150" id="TQO-sl-Lp2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="red-button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="medicalCross.png" translatesAutoresizingMaskIntoConstraints="NO" id="d41-8L-IdT">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="BqG-xS-fyT"/>
+                                    <constraint firstAttribute="height" constant="95" id="eRI-LO-Utb"/>
+                                </constraints>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="273" image="Gun-Silhouette-White.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lws-pA-bLO">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="1bJ-S1-ieG"/>
+                                    <constraint firstAttribute="height" constant="100" id="noo-El-6Lz"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nSC-oS-ffO" firstAttribute="top" secondItem="ZSk-Dk-kMg" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0B1-Le-9Is"/>
+                            <constraint firstItem="8qd-TD-Rqn" firstAttribute="bottom" secondItem="nSC-oS-ffO" secondAttribute="bottom" type="default" id="4af-Pr-SLy"/>
+                            <constraint firstItem="ZSk-Dk-kMg" firstAttribute="centerY" secondItem="ezQ-UJ-hFW" secondAttribute="centerY" type="default" id="7pq-FN-BOZ"/>
+                            <constraint firstItem="Lws-pA-bLO" firstAttribute="centerX" secondItem="nSC-oS-ffO" secondAttribute="centerX" type="default" id="8SU-Cd-5Ws"/>
+                            <constraint firstItem="d41-8L-IdT" firstAttribute="centerX" secondItem="8qd-TD-Rqn" secondAttribute="centerX" type="default" id="Awp-wC-hKf"/>
+                            <constraint firstItem="8qd-TD-Rqn" firstAttribute="leading" secondItem="lko-tZ-zT6" secondAttribute="leading" type="default" id="INr-Vw-hXK"/>
+                            <constraint firstItem="cJs-Xd-WAs" firstAttribute="leading" secondItem="lko-tZ-zT6" secondAttribute="leading" type="default" id="JG6-Zz-6MJ"/>
+                            <constraint firstItem="ZSk-Dk-kMg" firstAttribute="centerX" secondItem="ezQ-UJ-hFW" secondAttribute="centerX" type="default" id="OBH-qH-L5V"/>
+                            <constraint firstItem="d41-8L-IdT" firstAttribute="top" secondItem="lko-tZ-zT6" secondAttribute="top" constant="157" id="QAV-1s-6RD"/>
+                            <constraint firstItem="cJs-Xd-WAs" firstAttribute="top" secondItem="lko-tZ-zT6" secondAttribute="top" type="default" id="X14-A5-pYq"/>
+                            <constraint firstItem="Lws-pA-bLO" firstAttribute="centerY" secondItem="nSC-oS-ffO" secondAttribute="centerY" type="default" id="aNu-6k-gfg"/>
+                            <constraint firstItem="8qd-TD-Rqn" firstAttribute="top" secondItem="ZSk-Dk-kMg" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="jTn-uZ-ROW"/>
+                            <constraint firstItem="ZSk-Dk-kMg" firstAttribute="centerX" secondItem="cJs-Xd-WAs" secondAttribute="centerX" type="default" id="lBb-vK-AwG"/>
+                            <constraint firstItem="cJs-Xd-WAs" firstAttribute="trailing" secondItem="lko-tZ-zT6" secondAttribute="trailing" type="default" id="lOh-C7-R9e"/>
+                            <constraint firstItem="cJs-Xd-WAs" firstAttribute="bottom" secondItem="lko-tZ-zT6" secondAttribute="bottom" type="default" id="lca-pA-SZo"/>
+                            <constraint firstItem="nSC-oS-ffO" firstAttribute="trailing" secondItem="lko-tZ-zT6" secondAttribute="trailing" type="default" id="wvp-pz-EVn"/>
+                            <constraint firstItem="ezQ-UJ-hFW" firstAttribute="top" secondItem="lko-tZ-zT6" secondAttribute="top" type="default" id="znx-o1-zAv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Tgv-lk-Zmi"/>
+                    <connections>
+                        <outlet property="crimeImage" destination="Lws-pA-bLO" id="DzQ-Zx-ZVo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V20-rd-eCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1161" y="-175"/>
         </scene>
         <!--SoS ContactsVC - Contacts-->
         <scene sceneID="b2x-NM-PWs">
@@ -246,7 +359,13 @@
                             <constraint firstItem="WZb-uQ-vTh" firstAttribute="top" secondItem="Sny-Xm-2O6" secondAttribute="top" type="default" id="rjC-xL-Bsf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Contacts" id="x0S-L5-1eM"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="x0S-L5-1eM">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="bMt-LN-nHj">
+                            <connections>
+                                <segue destination="gm9-IF-zJ9" kind="push" id="ZpF-4V-1s4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hQE-KO-OCi" id="H1l-KD-sfZ"/>
                     </connections>
@@ -275,8 +394,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Gun-Silhouette-White.png" width="178" height="178"/>
         <image name="background00.png" width="319" height="458"/>
         <image name="defaultProfileImage.png" width="150" height="150"/>
+        <image name="fireIcon.png" width="903" height="1013"/>
+        <image name="medicalCross.png" width="773" height="800"/>
+        <image name="red-button.png" width="2048" height="2048"/>
     </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
@@ -294,7 +417,6 @@
         <class className="SoSContactsVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SoSContactsVC.h"/>
             <relationships>
-                <relationship kind="action" name="unwindingMehtod:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
@@ -303,6 +425,12 @@
             <relationships>
                 <relationship kind="outlet" name="detailText" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SoSEmergencyVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SoSEmergencyVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="crimeImage" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="SoSaddContactCell" superclassName="UITableViewCell">
@@ -315,9 +443,6 @@
                 <relationship kind="outlet" name="lastNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="profileImageView" candidateClass="UIImageView"/>
             </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

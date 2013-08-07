@@ -27,6 +27,11 @@
 		1B5312E717A86B0B00D519D4 /* SoSviewContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5312E617A86B0B00D519D4 /* SoSviewContactCell.m */; };
 		1B5312EB17A87CF000D519D4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B5312EA17A87CF000D519D4 /* AddressBook.framework */; };
 		1B5312ED17A87CF600D519D4 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B5312EC17A87CF600D519D4 /* AddressBookUI.framework */; };
+		1B89491A17B2C995006F0B30 /* red-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B89491917B2C995006F0B30 /* red-button.png */; };
+		1B89491C17B2DEF3006F0B30 /* fireIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B89491B17B2DEF3006F0B30 /* fireIcon.png */; };
+		1B89491E17B2E591006F0B30 /* medicalCross.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B89491D17B2E591006F0B30 /* medicalCross.png */; };
+		1B89492417B2F0CB006F0B30 /* Gun-Silhouette-White.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B89492317B2F0CB006F0B30 /* Gun-Silhouette-White.png */; };
+		1B89492917B2F467006F0B30 /* SoSEmergencyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B89492817B2F467006F0B30 /* SoSEmergencyVC.m */; };
 		1BDF612E17A8B3AD006A97D3 /* SoSContactDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BDF612D17A8B3AD006A97D3 /* SoSContactDetailsVC.m */; };
 		1BDF613117A9BD68006A97D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BDF613017A9BD68006A97D3 /* QuartzCore.framework */; };
 		1BDF613317A9BEBA006A97D3 /* defaultProfileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BDF613217A9BEBA006A97D3 /* defaultProfileImage.png */; };
@@ -62,6 +67,12 @@
 		1B5312E617A86B0B00D519D4 /* SoSviewContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoSviewContactCell.m; sourceTree = "<group>"; };
 		1B5312EA17A87CF000D519D4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		1B5312EC17A87CF600D519D4 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		1B89491917B2C995006F0B30 /* red-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-button.png"; sourceTree = "<group>"; };
+		1B89491B17B2DEF3006F0B30 /* fireIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireIcon.png; sourceTree = "<group>"; };
+		1B89491D17B2E591006F0B30 /* medicalCross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medicalCross.png; sourceTree = "<group>"; };
+		1B89492317B2F0CB006F0B30 /* Gun-Silhouette-White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gun-Silhouette-White.png"; sourceTree = "<group>"; };
+		1B89492717B2F467006F0B30 /* SoSEmergencyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoSEmergencyVC.h; sourceTree = "<group>"; };
+		1B89492817B2F467006F0B30 /* SoSEmergencyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoSEmergencyVC.m; sourceTree = "<group>"; };
 		1BDF612C17A8B3AD006A97D3 /* SoSContactDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoSContactDetailsVC.h; sourceTree = "<group>"; };
 		1BDF612D17A8B3AD006A97D3 /* SoSContactDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoSContactDetailsVC.m; sourceTree = "<group>"; };
 		1BDF613017A9BD68006A97D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -134,6 +145,10 @@
 		1B5312BD17A8678B00D519D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1B89492317B2F0CB006F0B30 /* Gun-Silhouette-White.png */,
+				1B89491D17B2E591006F0B30 /* medicalCross.png */,
+				1B89491B17B2DEF3006F0B30 /* fireIcon.png */,
+				1B89491917B2C995006F0B30 /* red-button.png */,
 				1BDF613217A9BEBA006A97D3 /* defaultProfileImage.png */,
 				1B5312DC17A8682300D519D4 /* background02.png */,
 				1B5312DA17A8681D00D519D4 /* 3Nq51.png */,
@@ -176,6 +191,8 @@
 		1BDF612F17A8B3B8006A97D3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1B89492717B2F467006F0B30 /* SoSEmergencyVC.h */,
+				1B89492817B2F467006F0B30 /* SoSEmergencyVC.m */,
 				1BDF612C17A8B3AD006A97D3 /* SoSContactDetailsVC.h */,
 				1BDF612D17A8B3AD006A97D3 /* SoSContactDetailsVC.m */,
 				1B5312D417A867DB00D519D4 /* SoSContactsVC.m */,
@@ -258,6 +275,10 @@
 				1B5312E417A86AEA00D519D4 /* SoSviewContactCell.xib in Resources */,
 				1BDF613317A9BEBA006A97D3 /* defaultProfileImage.png in Resources */,
 				1BE2B8ED17B038D5001AAC9F /* customContactDetailCell.xib in Resources */,
+				1B89491A17B2C995006F0B30 /* red-button.png in Resources */,
+				1B89491C17B2DEF3006F0B30 /* fireIcon.png in Resources */,
+				1B89491E17B2E591006F0B30 /* medicalCross.png in Resources */,
+				1B89492417B2F0CB006F0B30 /* Gun-Silhouette-White.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +296,7 @@
 				1B5312E717A86B0B00D519D4 /* SoSviewContactCell.m in Sources */,
 				1BDF612E17A8B3AD006A97D3 /* SoSContactDetailsVC.m in Sources */,
 				1BE2B8F017B03C69001AAC9F /* SoSCustomContactDetailCell.m in Sources */,
+				1B89492917B2F467006F0B30 /* SoSEmergencyVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
