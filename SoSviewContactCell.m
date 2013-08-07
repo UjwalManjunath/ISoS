@@ -10,23 +10,40 @@
 @interface SoSviewContactCell()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 
-@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
 
+
+
+@property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
 
 
 @end
 @implementation SoSviewContactCell
 
--(void)setUserName:(NSString *)userName
+-(void)setFirstName:(NSString *)firstName
 {
-    _userName = userName;
-    self.userNameLabel.text = userName;
+    _firstName = firstName;
+    self.firstNameLabel.text = firstName;
+}
+
+-(void)setLastName:(NSString *)lastName
+{
+    _lastName = lastName;
+    self.lastNameLabel.text = lastName;
 }
 
 -(void)setProfilePictureData:(NSData *)profilePictureData
 {
     _profilePictureData = profilePictureData   ;
     self.profileImageView.image = [UIImage imageWithData:profilePictureData];
+}
+
+-(void)setProfileImageView:(UIImageView *)profileImageView
+{
+    _profileImageView = profileImageView;
+    CALayer *pL = [profileImageView layer];
+    [pL setMasksToBounds:YES];
+    [pL setCornerRadius:10.0];
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

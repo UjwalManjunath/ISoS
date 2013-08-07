@@ -16,5 +16,5 @@
 
 @property ABRecordRef *person;
 
-
+@property (nonatomic,strong) NSDictionary *contact;
 @end

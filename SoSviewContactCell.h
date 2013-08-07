@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <QuartzCore/QuartzCore.h>
 @interface SoSviewContactCell : UITableViewCell
 
 
-@property (nonatomic,strong) NSString *userName;
+@property (nonatomic,strong) NSString *firstName;
+@property (nonatomic,strong) NSString *lastName;
 @property(nonatomic,strong) NSData* profilePictureData;
 @end

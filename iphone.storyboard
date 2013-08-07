@@ -165,11 +165,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="hQE-KO-OCi">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addContact" id="COs-uZ-b7z" customClass="SoSaddContactCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addContact" id="COs-uZ-b7z" customClass="SoSaddContactCell">
                                         <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -177,17 +177,53 @@
                                             <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
                                         </accessibility>
                                         <connections>
-                                            <segue destination="FtR-V3-Q3u" kind="push" identifier="addContact" id="r0q-Nt-aQq"/>
+                                            <segue destination="FtR-V3-Q3u" kind="push" identifier="addContact" id="9sP-dS-UMm"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="editContact" id="9Mh-fA-JMd" customClass="SoSviewContactCell">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="viewContact" id="9Mh-fA-JMd" customClass="SoSviewContactCell">
                                         <rect key="frame" x="0.0" y="91" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utc-K1-37s">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="53" id="HPX-3c-hn3"/>
+                                                        <constraint firstAttribute="height" constant="41" id="aXu-y1-rxb"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihL-EM-T7y">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="219" id="8c3-fB-iJc"/>
+                                                        <constraint firstAttribute="height" constant="21" id="aMZ-zm-6EQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0M-sc-T6t">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="utc-K1-37s" firstAttribute="centerY" secondItem="9Mh-fA-JMd" secondAttribute="centerY" type="default" id="7pr-J8-dgk"/>
+                                            <constraint firstItem="utc-K1-37s" firstAttribute="leading" secondItem="9Mh-fA-JMd" secondAttribute="leading" constant="10" id="CrH-ed-kce"/>
+                                            <constraint firstItem="S0M-sc-T6t" firstAttribute="leading" secondItem="utc-K1-37s" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="SIr-MC-6sJ"/>
+                                            <constraint firstItem="ihL-EM-T7y" firstAttribute="trailing" secondItem="S0M-sc-T6t" secondAttribute="trailing" type="default" id="XdS-bg-5Wd"/>
+                                            <constraint firstItem="utc-K1-37s" firstAttribute="top" secondItem="ihL-EM-T7y" secondAttribute="top" type="default" id="ggs-z0-a7x"/>
+                                            <constraint firstItem="ihL-EM-T7y" firstAttribute="leading" secondItem="utc-K1-37s" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="nM6-xx-W1I"/>
+                                            <constraint firstItem="S0M-sc-T6t" firstAttribute="top" secondItem="9Mh-fA-JMd" secondAttribute="top" constant="20" type="default" id="ury-CA-roi"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="firstNameLabel" destination="ihL-EM-T7y" id="6c6-UG-bh0"/>
+                                            <outlet property="lastNameLabel" destination="S0M-sc-T6t" id="ygC-X7-SCp"/>
+                                            <outlet property="profileImageView" destination="utc-K1-37s" id="fAd-9l-OXw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -209,6 +245,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Contacts" id="x0S-L5-1eM"/>
+                    <connections>
+                        <outlet property="tableView" destination="hQE-KO-OCi" id="H1l-KD-sfZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hfp-kk-5gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -254,6 +293,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SoSContactsVC.h"/>
             <relationships>
                 <relationship kind="action" name="unwindingMehtod:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="SoSCustomContactDetailCell" superclassName="UITableViewCell">
@@ -269,8 +309,9 @@
         <class className="SoSviewContactCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SoSviewContactCell.h"/>
             <relationships>
+                <relationship kind="outlet" name="firstNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lastNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="profileImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">

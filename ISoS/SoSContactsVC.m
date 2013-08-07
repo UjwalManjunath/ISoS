@@ -8,10 +8,13 @@
 
 #import "SoSContactsVC.h"
 #import "SoSaddContactCell.h"
+#import "SoSviewContactCell.h"
 #import "SoSContactDetailsVC.h"
 
 #define NO_OF_STATIC_CELLS 1
+
 @interface SoSContactsVC ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic,strong) NSMutableDictionary *contacts; //stores all contacts
 
@@ -23,7 +26,9 @@
 
 @end
 
-@implementation SoSContactsVC
+@implementation SoSContactsVC{
+    int sectionSelected;
+}
 
 #pragma Getter Methods
 
@@ -45,7 +50,7 @@
 {
     if(!_contacts){
        
-        _contacts = [[NSMutableDictionary alloc]initWithDictionary:@{@"Family": [NSNull null] ,@"Friends":[NSNull null] }];
+        _contacts = [[NSMutableDictionary alloc]initWithDictionary:@{@"Family": [NSNull null],@"Friends":[NSNull null] }];
         
     }
     return _contacts;
@@ -93,16 +98,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSString *cellIdentifier = @"addContact";
-    SoSaddContactCell *cell= (SoSaddContactCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
-   // if (cell == nil) {
-       // cell = [[SoSaddContactCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"SoSaddContactCell" owner:self options:nil]objectAtIndex:0];
- //   }
- 
- 
-    
-    return cell;
+    if(indexPath.row <  [self getCount:[self.contacts valueForKey:[[self.contacts allKeys]objectAtIndex:indexPath.section] ]]){
+        NSString *cellIdentifier = @"viewContact";
+        SoSviewContactCell *cell = (SoSviewContactCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if(cell == nil){
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"SoSviewContactCell" owner:self options:nil]objectAtIndex:0];
+        }
+        NSDictionary *contact =[[self.contacts valueForKey:[[self.contacts allKeys]objectAtIndex:indexPath.section]]objectAtIndex:indexPath.row];
+        cell.firstName = [contact valueForKey:@"FirstName"];
+        cell.lastName = [contact valueForKey:@"LastName"];
+        cell.profilePictureData = [contact valueForKey:@"Imagedata"];
+        
+        
+        return cell;
+    }
+    else{
+        NSString *cellIdentifier = @"addContact";
+        SoSaddContactCell *cell= (SoSaddContactCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier ];
+       
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"SoSaddContactCell" owner:self options:nil]objectAtIndex:0];
+        
+        return cell;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -123,6 +140,7 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self showPicker:indexPath.section];
+    sectionSelected = indexPath.section;
     //
 }
 
@@ -131,6 +149,7 @@
 // Called after the user has pressed cancel
 // The delegate is responsible for dismissing the peoplePicker
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker{
+    [self.navigationController popToRootViewControllerAnimated:NO];
     [peoplePicker dismissViewControllerAnimated:YES completion:^{}];
     
 }
@@ -173,11 +192,23 @@
 #pragma Unwind Segue Method
 
 -(IBAction)unwindingMehtod:(UIStoryboardSegue *)segue{
+    SoSContactDetailsVC *savedContactDetails = [segue sourceViewController];
+    id key = [[self.contacts allKeys]objectAtIndex:sectionSelected];
+    NSMutableArray *contactArray;
+    if(self.contacts[key] ==(id)[NSNull null])
+    {
+        contactArray = [[NSMutableArray alloc] initWithObjects:savedContactDetails.contact, nil];
+       
+    }
+    else {
+        contactArray = self.contacts[key];
+        [contactArray addObject:savedContactDetails.contact];
+        
+    }
+     [self.contacts setObject:contactArray forKey:[[self.contacts allKeys]objectAtIndex:sectionSelected]];
     
-    SoSContactDetailsVC *contactDetials = [[SoSContactDetailsVC alloc ]init];
-    
-    
-    
+   
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sectionSelected] withRowAnimation:UITableViewRowAnimationAutomatic];
     NSLog(@"back in parent view");
 }
 

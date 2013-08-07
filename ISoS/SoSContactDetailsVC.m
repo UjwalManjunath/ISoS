@@ -425,6 +425,7 @@
 
 
 #pragma  Segue Methods
+
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     if(!self.isPhonenumberSelected || !self.isEmailAddressSelected){
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Before You save" message:@"Please select an emailaddress and a phonenumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -437,22 +438,11 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"saveContact"])
+    if([segue.identifier isEqualToString:@"saveContact"]) // prepare for unwind segue
     {
         NSLog(@"prepare for segue called");
+        self.contact = @{@"FirstName": self.firstname , @"LastName": self.lastname , @"PhoneNumbers": self.phoneNumbers , @"EmailAddresses": self.emailAddresses, @"Imagedata": self.imageData};
         
-  
-       for(id key in [self.phoneNumbers allKeys])
-       {
-           NSLog(@"Key: %@, value %@", key,self.phoneNumbers[key]);
-       }
-        
-        
-        for(id key in [self.emailAddresses allKeys])
-        {
-            NSLog(@"Key: %@, value %@", key,self.emailAddresses[key]);
-        }
-
     }
 }
 
