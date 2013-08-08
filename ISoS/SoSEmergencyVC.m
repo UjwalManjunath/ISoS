@@ -35,6 +35,10 @@
 {
     [super viewDidLoad];
     self.crimeImage.transform = CGAffineTransformMakeRotation(M_PI/4);
+    
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    //NSDictionary *contact = [def objectForKey:@"Contacts"];
+    NSLog(@"%@",[def objectForKey:@"Contacts"]);
 	// Do any additional setup after loading the view.
 }
 
