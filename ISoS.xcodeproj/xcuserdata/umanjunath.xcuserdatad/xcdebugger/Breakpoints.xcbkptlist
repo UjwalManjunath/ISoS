@@ -34,7 +34,20 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ISoS/SoSContactsVC.m"
-         timestampString = "397515804.568351"
+         timestampString = "397687807.574238"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "37"
+         endingLineNumber = "37"
+         landmarkName = "@implementation SoSContactsVC"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ISoS/SoSContactsVC.m"
+         timestampString = "397687807.574238"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "33"
@@ -47,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ISoS/SoSContactsVC.m"
-         timestampString = "397515804.568351"
+         timestampString = "397687807.574238"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "29"
-         endingLineNumber = "29"
+         startingLineNumber = "35"
+         endingLineNumber = "35"
          landmarkName = "@implementation SoSContactsVC"
          landmarkType = "3">
       </FileBreakpoint>
@@ -60,24 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ISoS/SoSContactsVC.m"
-         timestampString = "397515804.568351"
+         timestampString = "397687807.574238"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
-         landmarkName = "@implementation SoSContactsVC"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ISoS/SoSContactsVC.m"
-         timestampString = "397515804.568351"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "39"
-         endingLineNumber = "39"
+         startingLineNumber = "48"
+         endingLineNumber = "48"
          landmarkName = "-titleForFooters"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ISoS/SoSContactsVC.m"
-         timestampString = "397515804.568351"
+         timestampString = "397687807.574238"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
+         startingLineNumber = "54"
+         endingLineNumber = "54"
          landmarkName = "-titleForHeaders"
          landmarkType = "5">
       </FileBreakpoint>
@@ -300,6 +300,45 @@
          startingLineNumber = "293"
          endingLineNumber = "293"
          landmarkName = "-returnKeyPressed:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ISoS/SoSEmergencyVC.m"
+         timestampString = "397689219.759241"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "34"
+         endingLineNumber = "34"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ISoS/SoSContactsVC.m"
+         timestampString = "397690434.645751"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "205"
+         endingLineNumber = "205"
+         landmarkName = "-unwindingMehtod:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ISoS/dataModel.m"
+         timestampString = "397691144.418398"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "33"
+         endingLineNumber = "33"
+         landmarkName = "-setContacts:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

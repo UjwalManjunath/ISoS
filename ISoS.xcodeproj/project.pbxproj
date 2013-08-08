@@ -39,6 +39,7 @@
 		1BDF613317A9BEBA006A97D3 /* defaultProfileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BDF613217A9BEBA006A97D3 /* defaultProfileImage.png */; };
 		1BE2B8ED17B038D5001AAC9F /* customContactDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BE2B8EC17B038D5001AAC9F /* customContactDetailCell.xib */; };
 		1BE2B8F017B03C69001AAC9F /* SoSCustomContactDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE2B8EF17B03C69001AAC9F /* SoSCustomContactDetailCell.m */; };
+		1BE68C8717B42F580017632A /* dataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE68C8617B42F580017632A /* dataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,8 @@
 		1BE2B8EC17B038D5001AAC9F /* customContactDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customContactDetailCell.xib; sourceTree = "<group>"; };
 		1BE2B8EE17B03C69001AAC9F /* SoSCustomContactDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoSCustomContactDetailCell.h; sourceTree = "<group>"; };
 		1BE2B8EF17B03C69001AAC9F /* SoSCustomContactDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoSCustomContactDetailCell.m; sourceTree = "<group>"; };
+		1BE68C8517B42F580017632A /* dataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dataModel.h; path = ISoS/dataModel.h; sourceTree = "<group>"; };
+		1BE68C8617B42F580017632A /* dataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = dataModel.m; path = ISoS/dataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				1B5312D617A867F100D519D4 /* iphone.storyboard */,
+				1BE68C8817B42F5C0017632A /* model */,
 				1BDF612F17A8B3B8006A97D3 /* Controllers */,
 				1B5312E817A86BA700D519D4 /* addContactCell */,
 				1BE2B8F117B03C6E001AAC9F /* contactDetailCell */,
@@ -217,6 +221,16 @@
 				1BE2B8EF17B03C69001AAC9F /* SoSCustomContactDetailCell.m */,
 			);
 			name = contactDetailCell;
+			sourceTree = "<group>";
+		};
+		1BE68C8817B42F5C0017632A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1BE68C8517B42F580017632A /* dataModel.h */,
+				1BE68C8617B42F580017632A /* dataModel.m */,
+			);
+			name = model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +319,7 @@
 				1BDF612E17A8B3AD006A97D3 /* SoSContactDetailsVC.m in Sources */,
 				1BE2B8F017B03C69001AAC9F /* SoSCustomContactDetailCell.m in Sources */,
 				1B89492917B2F467006F0B30 /* SoSEmergencyVC.m in Sources */,
+				1BE68C8717B42F580017632A /* dataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
