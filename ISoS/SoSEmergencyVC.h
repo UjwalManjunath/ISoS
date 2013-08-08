@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface SoSEmergencyVC : UIViewController
+@interface SoSEmergencyVC : UIViewController <MFMessageComposeViewControllerDelegate,CLLocationManagerDelegate>
 
 @end
